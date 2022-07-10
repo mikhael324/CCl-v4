@@ -349,7 +349,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             f_caption = f_caption
             buttons = [
             [
-                InlineKeyboardButton('🌀 Jᴏɪɴ Fᴏʀ Mᴏʀᴇ 🌀', url='https://t.me/+900a8ZXR1qM3NWVl')
+                InlineKeyboardButton('🌀 Jᴏɪɴ Fᴏʀ Mᴏʀᴇ 🌀', url='https://ccl_links')
             ]
             ]
         if f_caption is None:
