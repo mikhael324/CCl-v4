@@ -15,8 +15,8 @@
       "index",
       "inline"
     ],
-    "website": "https://github.com/Tony-Stark2021/MH-BOT",
-    "repository": "https://github.com/Tony-Stark2021/MH-BOT",
+    "website": "https://github.com/AKASH1234-bot/CCl-v4",
+    "repository": "https://github.com/AKASH1234-bot/CCl-v4",
     "env": {
         "BOT_TOKEN": {
             "description": "Your bot token.",
