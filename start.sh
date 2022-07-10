@@ -1,7 +1,7 @@
 if [ -z $UPSTREAM_REPO ]
 then
   echo "Cloning main Repository"
-  git clone https://github.com/Tony-Stark2021/CCl-v4.git /CCl-v4
+  git clone https://github.com/Tony-Stark2021/MH-BOT.git /MH-BOT
 else
   echo "Cloning Custom Repo from $UPSTREAM_REPO "
   git clone $UPSTREAM_REPO /CCl-v4
