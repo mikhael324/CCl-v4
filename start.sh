@@ -8,5 +8,5 @@ else
 fi
 cd /MH-BOT
 pip3 install -U -r requirements.txt
-echo "sᴛᴀʀᴛɪɴɢ 𝗗𝗞 𝗕𝗢𝗧𝘅........"
+echo "sᴛᴀʀᴛɪɴɢ Akash k Shibu........"
 python3 bot.py
