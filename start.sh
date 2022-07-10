@@ -6,7 +6,7 @@ else
   echo "Cloning Custom Repo from $UPSTREAM_REPO "
   git clone $UPSTREAM_REPO /CCl-v4
 fi
-cd /CCl-v4
+cd /MH-BOT
 pip3 install -U -r requirements.txt
 echo "Starting Bot...."
 python3 bot.py
