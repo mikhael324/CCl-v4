@@ -4,7 +4,7 @@ then
   git clone https://github.com/Tony-Stark2021/MH-BOT.git /MH-BOT
 else
   echo "Cloning Custom Repo from $UPSTREAM_REPO "
-  git clone AKASH1234-bot /CCl-v4
+  git clone AKASH1234-bot/CCl-v4
 fi
 cd /MH-BOT
 pip3 install -U -r requirements.txt
