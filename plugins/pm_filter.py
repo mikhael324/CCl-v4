@@ -723,8 +723,9 @@ async def auto_filter(client, msg, spoll=False):
     else:
         fmsg = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
     
-    await asyncio.sleep(DELETE_TIME)
+    await asyncio.sleep(240)
     await fmsg.delete()
+    await message.delete()
 
     if spoll:
        await msg.message.delete()
@@ -742,6 +743,7 @@ async def advantage_spell_chok(msg):
         k = await msg.reply("I couldn't find any movie in that name.")
         await asyncio.sleep(8)
         await k.delete()
+        await msg.delete()
         return
     regex = re.compile(r".*(imdb|wikipedia).*", re.IGNORECASE)  # look for imdb / wiki results
     gs = list(filter(regex.match, g_s))
@@ -771,7 +773,8 @@ async def advantage_spell_chok(msg):
         k = await msg.reply("𝙄 𝘾𝘼𝙉𝙏 𝙁𝙄𝙉𝘿 𝘼𝙉𝙔𝙏𝙃𝙄𝙉𝙂 𝙍𝙀𝙇𝙀𝘼𝙏𝙀𝘿 𝙏𝙊 𝙏𝙃𝘼𝙏 𝙎𝙋𝙀𝙇𝙇𝙄𝙉𝙂, 𝘾𝙃𝙀𝘾𝙆 𝙏𝙃𝙀 𝙎𝙋𝙀𝙇𝙇𝙄𝙉𝙂")
         await asyncio.sleep(8)
         await k.delete()
-        return
+        await msg.delete()
+        return 
     SPELL_CHECK[msg.message_id] = movielist
     btn = [[
         InlineKeyboardButton(
@@ -781,7 +784,8 @@ async def advantage_spell_chok(msg):
     ] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
     await msg.reply("𝘿𝙄𝘿 𝙔𝙊𝙐 𝙈𝙀𝘼𝙉 𝘼𝙉𝙔 𝙊𝙉𝙀 𝙏𝙃𝙀𝙎𝙀? 🤔",
-                    reply_markup=InlineKeyboardMarkup(btn))             
+                    reply_markup=InlineKeyboardMarkup(btn))  
+    await msg.delete()
 
 async def manual_filters(client, message, text=False):
     group_id = message.chat.id
