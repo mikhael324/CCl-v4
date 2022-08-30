@@ -783,8 +783,10 @@ async def advantage_spell_chok(msg):
         )
     ] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
-    await msg.reply("𝘿𝙄𝘿 𝙔𝙊𝙐 𝙈𝙀𝘼𝙉 𝘼𝙉𝙔 𝙊𝙉𝙀 𝙏𝙃𝙀𝙎𝙀? 🤔",
+    ddl=await msg.reply("𝘿𝙄𝘿 𝙔𝙊𝙐 𝙈𝙀𝘼𝙉 𝘼𝙉𝙔 𝙊𝙉𝙀 𝙏𝙃𝙀𝙎𝙀? 🤔",
                     reply_markup=InlineKeyboardMarkup(btn))  
+    await asyncio.sleep(15)
+    await ddl.delete()
     await msg.delete()
 
 async def manual_filters(client, message, text=False):
