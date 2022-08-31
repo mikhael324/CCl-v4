@@ -62,6 +62,8 @@ async def save_group(bot, message):
                 video="https://telegra.ph/file/ebd9cb5d817f79ee50f95.mp4",
                 caption=f"<b>👋 Hey {u.mention} how are you?🥰,</b><b>Welcome to {message.chat.title} ✨\n\n എന്തൊക്കെ ഉണ്ട് വിശേഷങ്ങൾ🥰</b>",
                 reply_markup=InlineKeyboardMarkup(buttons))
+                await asyncio.sleep(15)
+                await (temp.MELCOW['welcome']).delete()
 
 
 @Client.on_message(filters.command('leave') & filters.user(ADMINS))
