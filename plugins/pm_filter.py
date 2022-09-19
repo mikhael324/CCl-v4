@@ -789,11 +789,11 @@ async def advantage_spell_chok(msg):
     await ddl.delete()
     await msg.delete()
     
-    
-async def manual_filters(client, message, text=False):
+
+ async def manual_filters(client, message, text=False):
     group_id = message.chat.id
     name = text or message.text
-    reply_id = message.reply_to_message_id if message.reply_to_message else message_id
+    reply_id = message.reply_to_message.message_id if message.reply_to_message else message.message_id
     keywords = await get_filters(group_id)
     for keyword in reversed(sorted(keywords, key=len)):
         pattern = r"( |^|[^\w])" + re.escape(keyword) + r"( |$|[^\w])"
@@ -807,54 +807,36 @@ async def manual_filters(client, message, text=False):
                 try:
                     if fileid == "None":
                         if btn == "[]":
-                            dm =await client.send_message(
-                                group_id, 
-                                reply_text, 
-                                disable_web_page_preview=True,
-                                reply_to_message_id=reply_id)
-                            await asyncio.sleep(30)
-
-                            await dm.delete()
-
-                            await message.delete()
+                            await client.send_message(group_id, reply_text, disable_web_page_preview=True)
                         else:
                             button = eval(btn)
-                            dm= await client.send_message(
+                            await client.send_message(
                                 group_id,
                                 reply_text,
                                 disable_web_page_preview=True,
                                 reply_markup=InlineKeyboardMarkup(button),
                                 reply_to_message_id=reply_id
                             )
-                            await asyncio.sleep(30)
-                            await dm.delete()
-                            await message.delete()
                     elif btn == "[]":
-                        dm= await client.send_cached_media(
+                        await client.send_cached_media(
                             group_id,
                             fileid,
                             caption=reply_text or "",
                             reply_to_message_id=reply_id
                         )
-                        await asyncio.sleep(30)
-                        await dm.delete()
-                        await message.delete()
                     else:
                         button = eval(btn)
-                        dm= await message.reply_cached_media(
+                        await message.reply_cached_media(
                             fileid,
                             caption=reply_text or "",
                             reply_markup=InlineKeyboardMarkup(button),
                             reply_to_message_id=reply_id
                         )
-                        await asyncio.sleep(30)
-                        await dm.delete()
-                        await message.delete()
                 except Exception as e:
                     logger.exception(e)
                 break
     else:
-        return False
+        return False              
     
     
 
